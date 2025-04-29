@@ -106,9 +106,9 @@ plt.savefig('allegations_by_officer_and_complainant_ethnicity_heatmap_110.png', 
 plt.show()
 # %% [markdown]
 # # Writeup
-# 
-# - Proposition: blacks are systematically targeted for police misconduct. 
-# - Deceptive Technique: I changed the color palette for the heatmap to make the difference between the values for black complainants between other ethnicities more extreme. 
-# - Counter-Proposition: blacks are not systematically targeted for police misconduct. 
-# - Deceptive Technique: I hand-picked a precinct with a low proportion of misconduct allegations against blacks to make the counter-proposition look plausible. 
-# - Deceptive Technique: I changed the color palette for the heatmap to make the difference between the values for non-black complainants between other ethnicities more extreme. 
+#
+# - Proposition: blacks are systematically targeted for police misconduct.
+# - Deceptive Technique: I changed the color palette for the heatmap to make the difference between the values for black complainants between other ethnicities more extreme.
+# - Counter-Proposition: blacks are not systematically targeted for police misconduct.
+# - Deceptive Technique: I hand-picked a precinct with a low proportion of misconduct allegations against blacks to make the counter-proposition look plausible.
+# - Deceptive Technique: I changed the color palette for the heatmap to make the difference between the values for non-black complainants between other ethnicities more extreme.
