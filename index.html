@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+
+      figure > img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Carter Tran</strong> — <em>cat017@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Police misconduct systematically targets Black individuals.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="allegations_by_officer_and_complainant_ethnicity_heatmap.png" alt="Allegations by Officer and Complainant Ethnicity" />
+          <figcaption>Across the board of officer ethnicities, Black individuals are disproportionately targeted for police misconduct.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>I chose a heatmap visualization to display the relationship between officer and complainant ethnicity because it effectively represents the density of allegations across multiple categorical variables simultaneously. The color intensity immediately draws attention to problem areas, making patterns more apparent than in tabular data. I considered using grouped bar charts or mosaic plots, but heatmaps better highlight the disproportionate targeting without requiring mental computation from viewers. The effectiveness of this approach was validated by how clearly it reveals the concentration of allegations against Black individuals across all officer ethnicities. <b>Score:</b> 2</li>
+          <li>I deliberately selected a pale yellow to dark red colorscale for the heatmap to leverage color psychology and cultural associations. Red intuitively signals danger, problems, or violations, making high-allegation areas immediately stand out as concerning. I experimented with more colorblind-friendly palettes such as viridis and cividis, but found the yellow-to-red transition provided the best balance between colorblind-friendliness and use of color association. This decision strengthened the persuasive impact by visually coding the severity of the disparity. <b>Score:</b> 2</li>
+          <li>By bolding the "Black" label on the y-axis, I created a subtle but effective visual anchor that guides viewers' attention to the most critical data point without altering the underlying data. This modest emphasis works because it respects viewers' intelligence while facilitating faster pattern recognition. I considered using a different color or arrow indicator, but found that bold formatting provided sufficient emphasis without appearing manipulative or distracting from the overall visualization. <b>Score:</b> 2</li>
+          <li>I applied sigmoid emphasis to the color scale to amplify the visual contrast between high and low values, making the disparity appear more dramatic than a linear color scale would suggest. While this technique effectively highlighted the pattern supporting my proposition, it potentially exaggerated differences and could be considered misleading since it distorts the proportional relationship between values. <b>Score:</b> -1</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="allegations_by_officer_and_complainant_ethnicity_heatmap_110.png" alt="Allegations by Officer and Complainant Ethnicity" />
+          <figcaption>Black individuals are not found to be disproportionately targeted for police misconduct in various precincts.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>I maintained the heatmap visualization format and colorscale from the previous figure to establish visual continuity, which helps viewers compare the two datasets directly. Consistency in visualization design reduces cognitive load and focuses attention on the data differences rather than presentation differences. I considered creating a different visualization type to present this counter-evidence, but decided consistency would make the comparison more immediate and impactful for viewers analyzing both perspectives. <b>Score:</b> 2</li>
+          <li>My application of sigmoid emphasis to the color palette artificially amplified visual differentiation between values, making it appear that complaints were significantly more concentrated among non-Black individuals than the raw data actually supports. While effective for emphasizing patterns, this distortion is deceptive because it manipulates perception without transparency. <b>Score:</b> -1</li>
+          <li>I deliberately omitted contextual information about the precinct-specific nature of this visualization, potentially misleading viewers to interpret it as representative of broader trends. By omitting clear labeling that this represents an outlier precinct rather than citywide data, I allowed viewers to draw incorrect conclusions. <b>Score:</b> -2</li>
+          <li>I selectively chose precinct 110 from the dataset because it was an outlier that contradicted the overall pattern seen across most precincts, presenting an exception as though it might represent a rule. This cherry-picking approach fundamentally misrepresents the broader data landscape. I considered using aggregated data from multiple precincts or presenting a range of precincts to show variation, which would have been more honest while still presenting a counterargument to the proposition. <b>Score:</b> -2</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Creating these visualizations revealed the fine line between persuasive and deceptive techniques in data presentation. The straightforward aspects included selecting appropriate visualization types and color schemes that effectively communicated patterns in the data. What proved challenging was determining how far to push emphasis techniques without crossing ethical boundaries. For example, while bolding the "Black" label subtly guided attention without distorting data, applying sigmoid emphasis to color scales significantly altered perception of the magnitude of differences. I was surprised by how seemingly minor design choices—like omitting context about a visualization representing only a single precinct—could substantially change the narrative conveyed by otherwise accurate data.</p>
+
+        <p>Through this process, I've come to define "ethical analysis and visualization" as presenting data in ways that enhance understanding while maintaining the integrity of the underlying patterns. This means carefully considering both what is shown and what is omitted, ensuring that visual emphasis amplifies genuine patterns rather than manufacturing them, and providing sufficient context for proper interpretation. The boundary between acceptable persuasion and misleading representation seems to lie in intention and effect: techniques that help viewers more quickly perceive genuine patterns in the data (like thoughtful color choice and consistent formatting) fall on the persuasive side, while those that distort relationships or encourage false conclusions (like cherry-picking outlier data or applying non-linear transformations without disclosure) cross into misleading territory. Ultimately, the ethical visualization designer must balance effective communication with honest representation, recognizing that even technically accurate visualizations can mislead through selective emphasis or contextual omission.</p>
+      </section>
+    </main>
+  </body>
+</html>
